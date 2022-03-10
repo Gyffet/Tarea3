@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class MultMatriz {
 
-    static int N = 8;
+    static int N = 1000;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
