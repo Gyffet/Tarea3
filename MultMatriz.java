@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 public class MultMatriz {
 
-    static int N = 4;
+    static int N = 8;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
@@ -66,7 +67,7 @@ public class MultMatriz {
                     //conexion = new Socket("localhost", 51000 + nodo);
                     //conexion = new Socket(IP, 51000 + nodo);
                     conexion = new Socket(IP, 51000);
-                    
+
                     System.out.println("IP asignada para la conexion: " + IP);
 
                     DataInputStream entrada = new DataInputStream(conexion.getInputStream());
@@ -191,14 +192,14 @@ public class MultMatriz {
             Worker w[] = new Worker[3];     //instancia de 3 hilos (para conectarnos a c/u de los server
             for (int i = 0; i < 3; i++) {
                 w[i] = new Worker(i + 1);
-                if (i + 1 == 1) {
+                /*if (i + 1 == 1) {
                     IP = "104.210.131.240";
                 } else if (i + 1 == 2) {
                     IP = "20.225.43.192";
                 } else if (i + 1 == 3) {
                     IP = "20.225.42.231";
-                }
-                
+                }*/
+
                 w[i].start();   //los iniciamos
             }
 
@@ -210,7 +211,7 @@ public class MultMatriz {
                 } else if (i + 1 == 3) {
                     IP = "20.225.42.231";
                 }
-                System.out.println("Enviado al nodo: " + (i+1) + " con número de IP: " + IP);
+                //System.out.println("Enviado al nodo: " + (i+1) + " con número de IP: " + IP);
                 w[i].join();    //esperamos a que terminen los 3 hilos
             }
 
@@ -225,6 +226,13 @@ public class MultMatriz {
                 }
                 pos_i++;
             }
+            System.out.println(" ");
+            System.out.println("Parte matriz A");
+            System.out.println(Arrays.deepToString(aux_A));
+
+            System.out.println(" ");
+            System.out.println("Parte matriz B");
+            System.out.println(Arrays.deepToString(aux_B));
 
             for (int i = 0; i < N / 2; i++) //calculamos C4 
             {
