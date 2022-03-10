@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 
 public class MultMatriz {
 
-    static int N = 8;
+    static int N = 4;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
