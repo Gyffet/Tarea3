@@ -147,6 +147,25 @@ public class MultMatriz {
                 }
             }
 
+            System.out.println("Matriz A:");
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    System.out.print(A[i][j] + " ");
+                }
+                System.out.println("");
+            }
+            System.out.println("");
+
+            System.out.println("Matriz B:");
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    System.out.print(B[i][j] + " ");
+                }
+                System.out.println("");
+            }
+
+            System.out.println("");
+
             for (int i = 0; i < N; i++) //transposición de matriz:
             {
                 for (int j = 0; j < i; j++) {
@@ -155,6 +174,17 @@ public class MultMatriz {
                     B[j][i] = x;
                 }
             }
+
+            System.out.println("Matriz B transpuesta:");
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    System.out.print(B[i][j] + " ");
+                }
+                System.out.println("");
+
+            }
+
+            System.out.println("");
 
             Worker w[] = new Worker[3];     //instancia de 3 hilos (para conectarnos a c/u de los server
             for (int i = 0; i < 3; i++) {
@@ -192,6 +222,15 @@ public class MultMatriz {
                         aux_C[i][j] += aux_A[i][k] * aux_B[j][k];
                     }
                 }
+
+            }
+
+            System.out.println("parte matriz C");
+            for (int i = 0; i < N / 2; i++) {
+                for (int j = 0; j < N / 2; j++) {
+                    System.out.print(aux_C[i][j] + " ");
+                }
+                System.out.println("");
             }
 
             pos_i = N / 2;
@@ -257,10 +296,22 @@ public class MultMatriz {
 
                 //lectura de la parte de la matriz Ai
                 parte_A = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-
+                System.out.println("Parte matriz A");
+                for (int i = 0; i < tam_matriz / 2; i++) {
+                    for (int j = 0; j < tam_matriz; j++) {
+                        System.out.print(parte_A[i][j] + " ");
+                    }
+                    System.out.println("");
+                }
                 //lectura de la parte de la matriz Bi
                 parte_B = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-
+                System.out.println("parte matriz B");
+                for (int i = 0; i < tam_matriz / 2; i++) {
+                    for (int j = 0; j < tam_matriz; j++) {
+                        System.out.print(parte_B[i][j] + " ");
+                    }
+                    System.out.println("");
+                }
                 //calculando la parte de la matriz Ci
                 for (int i = 0; i < tam_matriz / 2; i++) {
                     for (int j = 0; j < tam_matriz / 2; j++) {
