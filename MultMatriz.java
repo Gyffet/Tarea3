@@ -193,11 +193,11 @@ public class MultMatriz {
             for (int i = 0; i < 3; i++) {
                 w[i] = new Worker(i + 1);
                 if (i + 1 == 1) {
-                    IP = "104.210.131.240";
+                    IP = "20.97.121.153";
                 } else if (i + 1 == 2) {
-                    IP = "20.225.43.192";
+                    IP = "20.97.120.218";
                 } else if (i + 1 == 3) {
-                    IP = "20.225.42.231";
+                    IP = "20.97.121.36";
                 }
 
                 w[i].start();   //los iniciamos
@@ -205,11 +205,11 @@ public class MultMatriz {
 
             for (int i = 0; i < 3; i++) {
                 if (i + 1 == 1) {
-                    IP = "104.210.131.240";
+                    IP = "20.97.121.153";
                 } else if (i + 1 == 2) {
-                    IP = "20.225.43.192";
+                    IP = "20.97.120.218";
                 } else if (i + 1 == 3) {
-                    IP = "20.225.42.231";
+                    IP = "20.97.121.36;
                 }
                 //System.out.println("Enviado al nodo: " + (i+1) + " con número de IP: " + IP);
                 w[i].join();    //esperamos a que terminen los 3 hilos
