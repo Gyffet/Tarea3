@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class MultMatriz {
 
-    static int N = 0;
+    static int N = 8;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
@@ -131,14 +131,13 @@ public class MultMatriz {
     }
 
     public static void main(String[] args) throws IOException, Exception {
-        if (args.length != 2) {
+        if (args.length != 1) {
             System.err.println("usage: java Token <nodo>");
             System.exit(1);
         }
 
         int nodo = Integer.parseInt(args[0]);
-        N = Integer.parseInt(args[1]);
-
+        
         if (nodo == 0) {      //CLIENTE    
 
             for (int i = 0; i < N; i++) //Inicialización de matrices
