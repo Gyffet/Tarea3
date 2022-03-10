@@ -143,7 +143,7 @@ public class MultMatriz {
             do {
                 System.out.print("Ingrese tamaño de la matriz: ");
                 Scanner lectura = new Scanner(System.in);
-                int edad = lectura.nextInt();
+                N = lectura.nextInt();
             } while (N != 0);
             for (int i = 0; i < N; i++) //Inicialización de matrices
             {
