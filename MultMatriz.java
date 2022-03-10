@@ -131,20 +131,14 @@ public class MultMatriz {
     }
 
     public static void main(String[] args) throws IOException, Exception {
-        /*if (args.length != 1) {
+        if (args.length != 2) {
             System.err.println("usage: java Token <nodo>");
             System.exit(1);
-        }*/
+        }
 
         int nodo = Integer.parseInt(args[0]);
+        N = Integer.parseInt(args[1]);
 
-        if (nodo == 0) {      //CLIENTE    
-
-            do {
-                System.out.print("Ingrese tamaño de la matriz: ");
-                Scanner lectura = new Scanner(System.in);
-                N = lectura.nextInt();
-            } while (N == 0);
             for (int i = 0; i < N; i++) //Inicialización de matrices
             {
                 for (int j = 0; j < N; j++) {
