@@ -209,7 +209,7 @@ public class MultMatriz {
                 } else if (i + 1 == 2) {
                     IP = "20.97.120.218";
                 } else if (i + 1 == 3) {
-                    IP = "20.97.121.36;
+                    IP = "20.97.121.36";
                 }
                 //System.out.println("Enviado al nodo: " + (i+1) + " con número de IP: " + IP);
                 w[i].join();    //esperamos a que terminen los 3 hilos
