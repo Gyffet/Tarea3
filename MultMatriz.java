@@ -144,7 +144,7 @@ public class MultMatriz {
                 System.out.print("Ingrese tamaño de la matriz: ");
                 Scanner lectura = new Scanner(System.in);
                 N = lectura.nextInt();
-            } while (N != 0);
+            } while (N == 0);
             for (int i = 0; i < N; i++) //Inicialización de matrices
             {
                 for (int j = 0; j < N; j++) {
