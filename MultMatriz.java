@@ -139,6 +139,8 @@ public class MultMatriz {
         int nodo = Integer.parseInt(args[0]);
         N = Integer.parseInt(args[1]);
 
+        if (nodo == 0) {      //CLIENTE    
+
             for (int i = 0; i < N; i++) //Inicialización de matrices
             {
                 for (int j = 0; j < N; j++) {
