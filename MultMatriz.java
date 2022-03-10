@@ -6,10 +6,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MultMatriz {
 
-    static int N = 1000;
+    static int N = 0;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
@@ -130,15 +131,20 @@ public class MultMatriz {
     }
 
     public static void main(String[] args) throws IOException, Exception {
-        if (args.length != 1) {
+        /*if (args.length != 1) {
             System.err.println("usage: java Token <nodo>");
             System.exit(1);
-        }
+        }*/
 
         int nodo = Integer.parseInt(args[0]);
-        //IP = args[1];
 
         if (nodo == 0) {      //CLIENTE    
+
+            do {
+                System.out.print("Ingrese tamaño de la matriz: ");
+                Scanner lectura = new Scanner(System.in);
+                int edad = lectura.nextInt();
+            } while (N != 0);
             for (int i = 0; i < N; i++) //Inicialización de matrices
             {
                 for (int j = 0; j < N; j++) {
@@ -148,23 +154,24 @@ public class MultMatriz {
                 }
             }
 
-            System.out.println("Matriz A:");
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    System.out.print(A[i][j] + " ");
+            if (N == 8) {
+                System.out.println("Matriz A:");
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++) {
+                        System.out.print(A[i][j] + " ");
+                    }
+                    System.out.println("");
                 }
                 System.out.println("");
-            }
-            System.out.println("");
 
-            System.out.println("Matriz B:");
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    System.out.print(B[i][j] + " ");
+                System.out.println("Matriz B:");
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++) {
+                        System.out.print(B[i][j] + " ");
+                    }
+                    System.out.println("");
                 }
-                System.out.println("");
             }
-
             System.out.println("");
 
             for (int i = 0; i < N; i++) //transposición de matriz:
@@ -175,18 +182,18 @@ public class MultMatriz {
                     B[j][i] = x;
                 }
             }
+            if (N == 8) {
+                System.out.println("Matriz B transpuesta:");
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++) {
+                        System.out.print(B[i][j] + " ");
+                    }
+                    System.out.println("");
 
-            System.out.println("Matriz B transpuesta:");
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    System.out.print(B[i][j] + " ");
                 }
+
                 System.out.println("");
-
             }
-
-            System.out.println("");
-
             Worker w[] = new Worker[3];     //instancia de 3 hilos (para conectarnos a c/u de los server
             for (int i = 0; i < 3; i++) {
                 w[i] = new Worker(i + 1);
@@ -224,14 +231,15 @@ public class MultMatriz {
                 }
                 pos_i++;
             }
-            System.out.println(" ");
-            System.out.println("Parte matriz A del nodo 0:");
-            System.out.println(Arrays.deepToString(aux_A));
+            if (N == 8) {
+                System.out.println(" ");
+                System.out.println("Parte matriz A del nodo 0:");
+                System.out.println(Arrays.deepToString(aux_A));
 
-            System.out.println(" ");
-            System.out.println("Parte matriz B del nodo 0:");
-            System.out.println(Arrays.deepToString(aux_B));
-
+                System.out.println(" ");
+                System.out.println("Parte matriz B del nodo 0:");
+                System.out.println(Arrays.deepToString(aux_B));
+            }
             for (int i = 0; i < N / 2; i++) //calculamos C4 
             {
                 for (int j = 0; j < N / 2; j++) {
