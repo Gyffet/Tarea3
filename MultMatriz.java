@@ -1,3 +1,4 @@
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 public class MultMatriz {
 
-    static int N = 4;
+    static int N = 1000;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
@@ -248,7 +249,6 @@ public class MultMatriz {
                 }
                 System.out.println("");
             }*/
-
             System.out.println("");
 
             pos_i = N / 2;
@@ -271,7 +271,20 @@ public class MultMatriz {
                 }
             }
 
-            if (N == 1000) {
+            if (N == 8) {
+                System.out.println("Matriz C completa en el cliente: ");
+
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++) {
+                        System.out.print(C[i][j] + " ");
+                    }
+                    System.out.println("");
+                }
+                System.out.println("");
+            }
+            System.out.println("Checksum: " + checksum);
+
+            /*if (N == 1000) {
                 System.out.println("Checksum: " + checksum);
 
             } else {  // N = 8
@@ -286,8 +299,7 @@ public class MultMatriz {
                 System.out.println("");
 
                 System.out.println("Checksum: " + checksum);
-            }
-
+            }*/
         } else {      //-----------------SERVIDOR------------------
             System.out.println("Nodo: " + nodo);
             ServerSocket servidor = new ServerSocket(51000);
@@ -314,21 +326,27 @@ public class MultMatriz {
 
                 //lectura de la parte de la matriz Ai
                 parte_A = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-                System.out.println("Parte matriz A del nodo " + nodo);
-                for (int i = 0; i < tam_matriz / 2; i++) {
-                    for (int j = 0; j < tam_matriz; j++) {
-                        System.out.print(parte_A[i][j] + " ");
-                    }
+                if (N == 8) {
+                    System.out.println("Parte matriz A del nodo " + nodo);
                     System.out.println("");
+                    for (int i = 0; i < tam_matriz / 2; i++) {
+                        for (int j = 0; j < tam_matriz; j++) {
+                            System.out.print(parte_A[i][j] + " ");
+                        }
+                        System.out.println("");
+                    }
                 }
                 //lectura de la parte de la matriz Bi
                 parte_B = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-                System.out.println("parte matriz B del nodo " + nodo);
-                for (int i = 0; i < tam_matriz / 2; i++) {
-                    for (int j = 0; j < tam_matriz; j++) {
-                        System.out.print(parte_B[i][j] + " ");
-                    }
+                if (N == 8) {
+                    System.out.println("parte matriz B del nodo " + nodo);
                     System.out.println("");
+                    for (int i = 0; i < tam_matriz / 2; i++) {
+                        for (int j = 0; j < tam_matriz; j++) {
+                            System.out.print(parte_B[i][j] + " ");
+                        }
+                        System.out.println("");
+                    }
                 }
                 //calculando la parte de la matriz Ci
                 for (int i = 0; i < tam_matriz / 2; i++) {
