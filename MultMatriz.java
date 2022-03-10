@@ -196,6 +196,7 @@ public class MultMatriz {
                 } else if (i + 1 == 3) {
                     IP = "20.225.42.231";
                 }
+                System.out.println("Enviado al nodo: " + (i+1) + " con número de IP: " + IP);
                 w[i].start();   //los iniciamos
             }
 
