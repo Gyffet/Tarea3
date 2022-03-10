@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class MultMatriz {
 
-    static int N = 4;
+    static int N = 8;
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
@@ -75,7 +75,7 @@ public class MultMatriz {
 
                     salida.writeInt(N);     //enviamos el tamanio de la matriz
 
-                    if (nodo == 1) { //enviamos la parte correspondiente de las matrices A y B al nodo
+                    if (nodo == 3) { //enviamos la parte correspondiente de las matrices A y B al nodo
                         enviar_parte_matriz(A, 0, N / 2, N, salida);
                         enviar_parte_matriz(B, 0, N / 2, N, salida);
 
@@ -88,7 +88,7 @@ public class MultMatriz {
                                 C[i][j] = parte_C[i][j];
                             }
                         }
-                    } else if (nodo == 2) {
+                    } else if (nodo == 1) {
                         enviar_parte_matriz(A, 0, N / 2, N, salida);
                         enviar_parte_matriz(B, N / 2, N, N, salida);
 
@@ -104,7 +104,7 @@ public class MultMatriz {
                             pos_j = N / 2;
                         }
 
-                    } else if (nodo == 3) {
+                    } else if (nodo == 2) {
                         enviar_parte_matriz(A, N / 2, N, N, salida);
                         enviar_parte_matriz(B, 0, N / 2, N, salida);
 
@@ -192,13 +192,13 @@ public class MultMatriz {
             Worker w[] = new Worker[3];     //instancia de 3 hilos (para conectarnos a c/u de los server
             for (int i = 0; i < 3; i++) {
                 w[i] = new Worker(i + 1);
-                /*if (i + 1 == 1) {
+                if (i + 1 == 1) {
                     IP = "104.210.131.240";
                 } else if (i + 1 == 2) {
                     IP = "20.225.43.192";
                 } else if (i + 1 == 3) {
                     IP = "20.225.42.231";
-                }*/
+                }
 
                 w[i].start();   //los iniciamos
             }
