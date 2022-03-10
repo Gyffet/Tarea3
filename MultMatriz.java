@@ -12,7 +12,7 @@ public class MultMatriz {
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
-    static String IP;
+    private String IP;
 
     static void read(DataInputStream f, byte[] b, int posicion, int longitud) throws Exception {
         while (longitud > 0) {
@@ -66,6 +66,8 @@ public class MultMatriz {
                     //conexion = new Socket("localhost", 51000 + nodo);
                     //conexion = new Socket(IP, 51000 + nodo);
                     conexion = new Socket(IP, 51000);
+                    
+                    System.out.println("IP asignada para la conexion: " + IP);
 
                     DataInputStream entrada = new DataInputStream(conexion.getInputStream());
                     DataOutputStream salida = new DataOutputStream(conexion.getOutputStream());
