@@ -1,4 +1,3 @@
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -67,8 +66,6 @@ public class MultMatriz {
                     //conexion = new Socket("localhost", 51000 + nodo);
                     //conexion = new Socket(IP, 51000 + nodo);
                     conexion = new Socket(IP, 51000);
-
-                    System.out.println("IP asignada para la conexion: " + IP);
 
                     DataInputStream entrada = new DataInputStream(conexion.getInputStream());
                     DataOutputStream salida = new DataOutputStream(conexion.getOutputStream());
@@ -227,11 +224,11 @@ public class MultMatriz {
                 pos_i++;
             }
             System.out.println(" ");
-            System.out.println("Parte matriz A");
+            System.out.println("Parte matriz A del nodo 0:");
             System.out.println(Arrays.deepToString(aux_A));
 
             System.out.println(" ");
-            System.out.println("Parte matriz B");
+            System.out.println("Parte matriz B del nodo 0:");
             System.out.println(Arrays.deepToString(aux_B));
 
             for (int i = 0; i < N / 2; i++) //calculamos C4 
@@ -244,13 +241,15 @@ public class MultMatriz {
 
             }
 
-            System.out.println("parte matriz C");
+            /*System.out.println("parte matriz C");
             for (int i = 0; i < N / 2; i++) {
                 for (int j = 0; j < N / 2; j++) {
                     System.out.print(aux_C[i][j] + " ");
                 }
                 System.out.println("");
-            }
+            }*/
+
+            System.out.println("");
 
             pos_i = N / 2;
             int pos_j = N / 2;
@@ -315,7 +314,7 @@ public class MultMatriz {
 
                 //lectura de la parte de la matriz Ai
                 parte_A = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-                System.out.println("Parte matriz A");
+                System.out.println("Parte matriz A del nodo " + nodo);
                 for (int i = 0; i < tam_matriz / 2; i++) {
                     for (int j = 0; j < tam_matriz; j++) {
                         System.out.print(parte_A[i][j] + " ");
@@ -324,7 +323,7 @@ public class MultMatriz {
                 }
                 //lectura de la parte de la matriz Bi
                 parte_B = read_parte_matriz(tam_matriz / 2, tam_matriz, entrada);
-                System.out.println("parte matriz B");
+                System.out.println("parte matriz B del nodo " + nodo);
                 for (int i = 0; i < tam_matriz / 2; i++) {
                     for (int j = 0; j < tam_matriz; j++) {
                         System.out.print(parte_B[i][j] + " ");
