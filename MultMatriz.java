@@ -12,7 +12,7 @@ public class MultMatriz {
     static double[][] A = new double[N][N];
     static double[][] B = new double[N][N];
     static double[][] C = new double[N][N];
-    private String IP;
+    static String IP;
 
     static void read(DataInputStream f, byte[] b, int posicion, int longitud) throws Exception {
         while (longitud > 0) {
