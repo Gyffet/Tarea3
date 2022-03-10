@@ -64,7 +64,8 @@ public class MultMatriz {
             for (;;) {
                 try {
                     //conexion = new Socket("localhost", 51000 + nodo);
-                    conexion = new Socket(IP, 51000 + nodo);
+                    //conexion = new Socket(IP, 51000 + nodo);
+                    conexion = new Socket(IP, 51000);
 
                     DataInputStream entrada = new DataInputStream(conexion.getInputStream());
                     DataOutputStream salida = new DataOutputStream(conexion.getOutputStream());
@@ -232,8 +233,8 @@ public class MultMatriz {
 
         } else {      //-----------------SERVIDOR------------------
             System.out.println("Nodo: " + nodo);
-            ServerSocket servidor = new ServerSocket(51000 + nodo);
-
+            ServerSocket servidor = new ServerSocket(51000);
+            //ServerSocket servidor = new ServerSocket(51000 + nodo);
             for (;;) {    //espera siempre la conexión del cliente
                 Socket conexion = servidor.accept();    //aceptar la conexión del cliente
 
