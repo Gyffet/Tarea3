@@ -146,17 +146,25 @@ public class ClienteRMIP5 {
             B4 = separa_matriz(B, 3*N/4, N);
             
             String url1 = "rmi://13.66.2.11/Tarea5";    // aqui van las IP privadas de cada nodo
+            String url2 = "rmi://104.215.81.19/Tarea5";    // en lugar de localhost            
+            String url3 = "rmi://13.84.214.206/Tarea5";
+            String url4 = "rmi://20.114.73.30/Tarea5/Tarea5";
+
+            InterfaceRMIP5 nodo1 = (InterfaceRMIP5)Naming.lookup(url1);
             
             System.out.println("URL1 Conectada");
             
-            String url2 = "rmi://localhost/pruebaPractica5";    // en lugar de localhost
-            String url3 = "rmi://localhost/pruebaPractica5";
-            String url4 = "rmi://localhost/pruebaPractica5";
-
-            InterfaceRMIP5 nodo1 = (InterfaceRMIP5)Naming.lookup(url1);
             InterfaceRMIP5 nodo2 = (InterfaceRMIP5)Naming.lookup(url2);
+            
+            System.out.println("URL2 Conectada");
+
             InterfaceRMIP5 nodo3 = (InterfaceRMIP5)Naming.lookup(url3);
+            
+            System.out.println("URL3 Conectada");
+            
             InterfaceRMIP5 nodo4 = (InterfaceRMIP5)Naming.lookup(url4);
+            
+            System.out.println("URL4 Conectada");
 
             Worker w[] = new Worker[4];   //instancia de 4 hilos (para conectarnos a c/u de los server)
             
