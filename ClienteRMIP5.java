@@ -145,7 +145,10 @@ public class ClienteRMIP5 {
             B3 = separa_matriz(B, N/2, N);
             B4 = separa_matriz(B, 3*N/4, N);
             
-            String url1 = "rmi://localhost/pruebaPractica5";    // aqui van las IP privadas de cada nodo
+            String url1 = "rmi://13.66.2.11/Tarea5";    // aqui van las IP privadas de cada nodo
+            
+            System.out.println("URL1 Conectada");
+            
             String url2 = "rmi://localhost/pruebaPractica5";    // en lugar de localhost
             String url3 = "rmi://localhost/pruebaPractica5";
             String url4 = "rmi://localhost/pruebaPractica5";
