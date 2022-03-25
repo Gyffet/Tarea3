@@ -145,10 +145,10 @@ public class ClienteRMIP5 {
             B3 = separa_matriz(B, N/2, N);
             B4 = separa_matriz(B, 3*N/4, N);
             
-            String url1 = "rmi://10.3.0.4/Tarea5";    // aqui van las IP privadas de cada nodo
-            String url2 = "rmi://10.4.0.4/Tarea5";    // en lugar de localhost            
-            String url3 = "rmi://10.0.0.5/Tarea5";
-            String url4 = "rmi://10.5.0.4/Tarea5/Tarea5";
+            String url1 = "rmi://10.0.0.5/Tarea5";    // aqui van las IP privadas de cada nodo
+            String url2 = "rmi://10.0.0.6/Tarea5";    // en lugar de localhost            
+            String url3 = "rmi://10.0.0.7/Tarea5";
+            String url4 = "rmi://10.0.0.8/Tarea5";
 
             InterfaceRMIP5 nodo1 = (InterfaceRMIP5)Naming.lookup(url1);
             
