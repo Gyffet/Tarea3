@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 public class ClienteRMIP5 {
     static int N = 4000;
+    //static int N = 8;
     static float[][] A = new float[N][N];
     static float[][] B = new float[N][N];
     static float[][] C = new float[N][N];
